@@ -7,7 +7,7 @@ logger.setLevel('error', false)
 conseiljs.registerLogger(logger)
 conseiljs.registerFetch(fetch)
 const conseilServer = 'https://conseil-prod.cryptonomic-infra.tech'
-const conseilApiKey = 'aa73fa8a-8626-4f43-a605-ff63130f37b1' // signup at nautilus.cloud
+const conseilApiKey = '084ceca6-ccd6-43b1-8372-7a6abcebb450' // signup at nautilus.cloud
 const tezosNode = ''
 
 const mainnet = require('./config').networkConfig
