@@ -195,7 +195,6 @@ const getFeed = async (counter, res) => {
   var arr = await conseilUtil.getArtisticUniverse(0);
 
   var feed = offset(desc(arr), counter);
-  console.log(feed);
   feed = await feed.map(async (e) => {
     e.token_info = await getIpfsHash(e.ipfsHash);
     e.token_id = parseInt(e.objectId);

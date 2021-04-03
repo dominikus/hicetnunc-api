@@ -6,6 +6,8 @@ const _ = require("lodash");
 const conseilUtil = require("./conseilUtil");
 require("dotenv").config();
 
+const feed = require("./feed.js");
+
 const reducer = (accumulator, currentValue) =>
   parseInt(accumulator) + parseInt(currentValue);
 
@@ -324,15 +326,7 @@ app.use(express.json());
 app.use(cors({ origin: "*" }));
 
 app.post("/feed", async (req, res) => {
-  /*     
-        var counter = req.query.counter
-        var max_time = req.query.hasOwnProperty('time') ? customFloor(req.query.time, ONE_MINUTE_MILLIS) : null
-        const now_time_qt = customFloor(Date.now(), ONE_MINUTE_MILLIS)
-        if (max_time != null & max_time > now_time_qt) {
-            max_time = null
-        } 
-    */
-  await getFeed(req.body.counter, res);
+  await feed(req, res);
 });
 
 app.post("/tz", async (req, res) => {
@@ -365,4 +359,4 @@ app.post("/hdao", async (req, res) => {
   await hDAOFeed(parseInt(req.body.counter), res);
 });
 
-module.exports = app;
+app.listen(3001);
